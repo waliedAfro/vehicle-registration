@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle Registration System </title>
+<link th:href="@{/css/main.css}"  rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Vehicle Registration System</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarText"
+				aria-controls="navbarText" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="#">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Features</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Pricing</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	<br />
+
+	<div class="container">
+		<div class="row">
+			<h3>Vehicle List</h3>
+		</div>
+		<div class="row">
+		<div class="col-lg-3">
+		<a th:href="@{/ins/route-create}" class="btn btn-primary btn-sm mb-3"> create Vehicle
+		</a>
+		</div>
+		</div>
+		<div class="row">
+			<table class="table table-striped table-bordered">
+				<thead class="table-dark">
+					<tr>
+						<th>Chassi No</th>
+						<th>Brand</th>
+						<th>Model</th>
+						<th>Model Year</th>
+						<th>Action</th>
+					</tr>
+				 </thead>
+				 <tbody>
+				 <tr th:each="vehicle:${vehicles}">
+				 	<td th:text="${vehicle.chassNo}"></td>
+				 	<td th:text="${vehicle.brand}"></td>
+				 	<td th:text="${vehicle.model}"></td>
+				 	<td th:text="${vehicle.modelYear}"></td>
+				 	<td>
+				 	<a th:href="@{/ins/route-update/{id} (id=${vehicle.vehicleId})}"  class="btn btn-primary"> Update </a>
+				 	<a th:href="@{/ins/delete/{id} (id=${vehicle.vehicleId})}"  class="btn btn-danger"> Delete </a>
+				 	
+				 	</td>
+				 </tr>
+				 
+				 </tbody>
+			</table>
+		
+		</div>
+	</div>
+</body>
+</html>

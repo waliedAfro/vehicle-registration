@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle Registration System </title>
+<link th:href="@{/css/main.css}"  rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" th:href="@{/ins/vehicle}">Vehicle Registration System</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarText"
+				aria-controls="navbarText" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="#">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Features</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Pricing</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	<br />
+
+	<div class="container">
+		
+		
+		<div class="col-lg-6 col-md-8 col-sm-10 container justify-content-center ">
+		
+		<div class="row">
+			<h3 class="text-center">Create Vehicle</h3>
+		</div>
+		
+		<div class="body-card">
+			<form th:action="@{/ins/create}" th:object="${vehicle}" method="POST">
+				
+				<div class="md-3">
+					<label for="chass-id"> Chassi No </label>
+					<input
+					type="text"
+					name="chass-id"
+					class="form-control"
+					id="chass-id"
+					placeholder="Please enter Chassi No"
+					th:field="*{chassNo}"
+					/>
+				</div>
+				
+				<div class="md-3">
+					<label for="brand"> Brand </label>
+					<input
+					type="text"
+					name="brand"
+					class="form-control"
+					id="brand"
+					placeholder="Please enter Brand"
+					th:field="*{brand}"
+					/>
+				</div>
+				
+				<div class="md-3">
+					<label for="model"> Model </label>
+					<input
+					type="text"
+					name="model"
+					class="form-control"
+					id="model"
+					placeholder="Please enter Model"
+					th:field="*{model}"
+					/>
+				</div>
+				
+				<div class="md-3">
+					<label for="model-year"> Model Year </label>
+					<input
+					type="text"
+					name="model-year"
+					class="form-control"
+					id="model-year"
+					placeholder="Please enter Model Year"
+					th:field="*{modelYear}"
+					/>
+				</div>
+				<br/>
+				<div class="box-footer">
+					<button type="submit" class="btn btn-primary">
+					Save
+					</button>
+				</div>
+			</form>
+		
+		
+		</div>
+		</div>
+	</div>
+	
+</body>
+</html>
